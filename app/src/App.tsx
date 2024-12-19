@@ -1,82 +1,74 @@
-import React, { useState, useEffect } from "react";
-import { useSocket } from "./context/socket";
+import React, { useState, useCallback, useEffect } from "react";
+import VideoCall from "./Video";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { Button } from "./components/ui/button";
 
-const ChatApp: React.FC = () => {
-  const { socket } = useSocket();
-  const [messages, setMessages] = useState<String[]>([]);
-  const [inputMessage, setInputMessage] = useState<string>("");
+const App: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const [roomId, setRoomId] = useState(searchParams.get("room") ?? "");
+  const [inCall, setInCall] = useState(false);
+  const navigate = useNavigate();
+  const createRoom = () => {
+    const newRoomId = Math.random().toString(36).substring(7);
+    setRoomId(newRoomId);
+    setInCall(true);
+    navigate(`?room=${newRoomId}`);
+  };
 
-  useEffect(() => {
-    if (!socket) return;
-
-    const handleMessage = (message: String) => {
-      setMessages((prevMessages: String[]) => [...prevMessages, message]);
-    };
-
-    // Listen for incoming messages
-    socket.on("chat_log", handleMessage);
-
-    return () => {
-      socket.off("chat_log", handleMessage); // Clean up the listener
-      socket.disconnect(); // Disconnect socket on component unmount
-    };
-  }, [socket]);
-
-  const sendMessage = () => {
-    if (inputMessage.trim() && socket) {
-      // Emit message to the server
-      socket.emit("message", inputMessage);
-      setInputMessage(""); // Clear input
+  const joinRoom = () => {
+    if (roomId.trim()) {
+      setInCall(true);
     }
   };
 
+  useEffect(() => {
+    if (searchParams.get("room")) {
+      joinRoom();
+    }
+  }, []);
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h2>Simple Chat</h2>
-      <div
-        style={{
-          border: "1px solid #ccc",
-          borderRadius: "5px",
-          padding: "10px",
-          maxHeight: "300px",
-          overflowY: "auto",
-          marginBottom: "10px",
-        }}
-      >
-        {messages.map((msg, index) => (
-          <div key={index}>
-            <strong>{msg}</strong>
+    <div className="app min-h-screen w-screen flex flex-col items-center justify-center">
+      {!inCall ? (
+        <div className="room-setup grid gap-6">
+          <div className="max-w-md text-center">
+            <h1 className="text-2xl font-bold text-center">
+              Video calls and meetings for everyone
+            </h1>
+            <h2>
+              Connect, collaborate, and celebrate from anywhere with lets meet!
+            </h2>
           </div>
-        ))}
-      </div>
-      <input
-        type="text"
-        value={inputMessage}
-        onChange={(e) => setInputMessage(e.target.value)}
-        placeholder="Type your message..."
-        style={{
-          padding: "10px",
-          width: "calc(100% - 80px)",
-          marginRight: "10px",
-          border: "1px solid #ccc",
-          borderRadius: "5px",
-        }}
-      />
-      <button
-        onClick={sendMessage}
-        style={{
-          padding: "10px",
-          backgroundColor: "#007BFF",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
-        Send
-      </button>
+          <div className="grid gap-2">
+            <Button onClick={createRoom} size={"lg"}>
+              Create Room
+            </Button>
+            <p className="mx-auto">or</p>
+            <div className="buttons flex border p-1 rounded-lg">
+              <input
+                type="text"
+                placeholder="Enter Room ID"
+                value={roomId}
+                onChange={(e) => setRoomId(e.target.value)}
+                className="w-full border rounded px-2"
+              />
+              <Button onClick={joinRoom} variant={"link"} className="">
+                Join Room
+              </Button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <VideoCall
+          roomId={roomId}
+          onCallEnd={() => {
+            setInCall(false);
+            setRoomId("");
+            navigate("/");
+          }}
+        />
+      )}
     </div>
   );
 };
 
-export default ChatApp;
+export default App;

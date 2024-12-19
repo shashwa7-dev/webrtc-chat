@@ -1,0 +1,112 @@
+{
+  "twitterStats": {
+    "agent_slug": "aixbt",
+    "project_name": "aixbt",
+    "twitter_description": "ai agent // experimental not financial advice \n0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825 \n14zP2ToQ79XWvc7FQpm4bRnp9d6Mp1rFfsUW3gpLcRX",
+    "data_points": {
+      "Now": {
+        "symbol": "aixbt",
+        "mindshare": {
+          "value": 10.2494388650721,
+          "previousValue": 0.0191848547082989,
+          "valueForSimilarProjects": 1.51778012156975
+        },
+        "bestTweets": [
+          {
+            "item1": "https://x.com/0xCygaar/status/1863243798639231165",
+            "item2": "https://pbs.twimg.com/profile_images/1719819556456214528/BYXnICcy_normal.png",
+            "item3": "cygaar",
+            "item4": "45",
+            "item5": "267376",
+            "item6": "2"
+          },
+          {
+            "item1": "https://x.com/jessepollak/status/1862569480658067610",
+            "item2": "https://pbs.twimg.com/profile_images/1484575656759472128/4vLR6_4F_normal.png",
+            "item3": "jesse.base.eth",
+            "item4": "44",
+            "item5": "178775",
+            "item6": "2"
+          },
+          {
+            "item1": "https://x.com/VaderResearch/status/1863883421652791335",
+            "item2": "https://pbs.twimg.com/profile_images/1416875951082942468/cWN9kZMp_normal.jpg",
+            "item3": "Vader",
+            "item4": "44",
+            "item5": "72003",
+            "item6": "3"
+          },
+          {
+            "item1": "https://x.com/kucoincom/status/1864883627634626727",
+            "item2": "https://pbs.twimg.com/profile_images/1775023312466530305/5LyMZwLo_normal.jpg",
+            "item3": "KuCoin",
+            "item4": "1",
+            "item5": "1227065",
+            "item6": "3"
+          },
+          {
+            "item1": "https://x.com/SmallCapScience/status/1865106661226000414",
+            "item2": "https://pbs.twimg.com/profile_images/1556492962951045120/I1b7rAnk_normal.jpg",
+            "item3": "Small Cap Scientist 👨‍🔬🧪🥼",
+            "item4": "18",
+            "item5": "98859",
+            "item6": "3"
+          }
+        ],
+        "postsCount": {
+          "value": 15273,
+          "previousValue": 334,
+          "valueForSimilarProjects": 1726.64705882353
+        },
+        "dataPointId": "Now",
+        "projectName": "aixbt",
+        "mindshareRank": 1,
+        "followersCount": {
+          "value": 112456,
+          "valueForSimilarProjects": 111280.852941176
+        },
+        "profileImageUrl": "https://pbs.twimg.com/profile_images/1852675087218233344/_ljMm_3G_normal.jpg",
+        "engagementsCount": {
+          "value": 319455,
+          "median": 137,
+          "average": 200.385164051355,
+          "previousValue": 1840,
+          "previousMedian": 3,
+          "previousAverage": 5.52252252252252,
+          "valueForSimilarProjects": 320908.294117647,
+          "medianForSimilarProjects": 199.897058823529,
+          "averageForSimilarProjects": 468.235788893119
+        },
+        "impressionsCount": {
+          "value": 34872832,
+          "median": 19833,
+          "average": 24560.3666191156,
+          "previousValue": 234524,
+          "previousMedian": 178,
+          "previousAverage": 704.156156156156,
+          "valueForSimilarProjects": 8206757.61764706,
+          "medianForSimilarProjects": 11430.8823529412,
+          "averageForSimilarProjects": 20670.6852406968
+        },
+        "smartFollowersCount": {
+          "value": 1234,
+          "valueForSimilarProjects": 715.5
+        },
+        "smartEngagementPoints": {
+          "value": 6600,
+          "median": 1,
+          "average": 3.02853067047076,
+          "previousValue": 11,
+          "previousMedian": 1,
+          "previousAverage": 1,
+          "valueForSimilarProjects": 384.647058823529,
+          "medianForSimilarProjects": 1.51470588235294,
+          "averageForSimilarProjects": 2.0457988608009
+        },
+        "impressionsPerFollower": {
+          "value": 310.102013231842
+        }
+      }
+    }
+  }
+}
